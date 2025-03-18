@@ -34,11 +34,11 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-@tag
+@Notify
 Feature: Notify users of low stocking redients
   i want to notify users about low of stocking redients
 
-  @tag1
+  @KitchenManager
   Scenario: Kitchen manager receives an alert for low-stock ingredients
     Given the current stock levels are being monitored
     And Stock levels are lower than required
