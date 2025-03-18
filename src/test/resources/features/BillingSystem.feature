@@ -1,7 +1,7 @@
-@Billing
+@tag
 Feature: Invoice Generation for Customers and Financial Report Generation
   
-  @CustomerBill
+  @tag1
   Scenario Outline: Invoice Generation for Customers
     Given the customer has logged in successfully
     And the customer has successfully completed their order
@@ -17,7 +17,7 @@ Feature: Invoice Generation for Customers and Financial Report Generation
       | Alaa          | 12346        | 2025-03-02 | 150  | Burger               | Apple Pay      | Alaa@gmail.com      |
       | Oqab          | 12347        | 2025-03-03 | 200  | Maqluba              | Cash           | Oqab@gmail.com      |
 
-  @FinancialReport
+  @tag2
   Scenario Outline: Financial Report Generation
     Given the admin is logged into the system
     And the admin has selected the "Financial Report" option

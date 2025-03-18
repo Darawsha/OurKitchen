@@ -16,13 +16,12 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-@Reminder
 Feature: Send reminders for upcoming orders and deliveries
 As a customer, I want to receive reminders for my upcoming meal deliveries so that I can
 be prepared to receive them.
 As a chef, I want to get notified of scheduled cooking tasks so that I can prepare meals
 on time.
-@CustomerReminder
+@tag1
 Scenario: Send reminders to customer to get ready to receive the order
 Given a customer has an upcoming meal delivery scheduled
 And the delivery time is approaching
@@ -30,7 +29,7 @@ When the reminder time is reached
 Then the customer receives a reminder notification
 And the reminder includes the delivery time and order details
 
-@ChefReminder
+@tag2
 Scenario: Send reminders to the chef to start preparing meals
 Given a chef has scheduled cooking tasks for upcoming orders
 And the preparation time is approaching
