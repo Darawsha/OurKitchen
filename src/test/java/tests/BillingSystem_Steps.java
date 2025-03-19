@@ -7,12 +7,13 @@ import mainpackage.Main;
 
 public class BillingSystem_Steps {
 	
-	Main main ;
-	BillingSystem_Steps(Main main){
-		
-		this.main=main;
-			
-	}
+	/*
+	 * Main main ; BillingSystem_Steps(Main main){
+	 * 
+	 * this.main=main;
+	 * 
+	 * }
+	 */
 	@Given("the customer has logged in successfully")
 	public void theCustomerHasLoggedInSuccessfully() {
 	    // Write code here that turns the phrase above into concrete actions

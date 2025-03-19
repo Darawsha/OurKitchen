@@ -7,10 +7,9 @@ import mainpackage.Main;
 
 public class OrderDeliveryRemindersSteps {
 	
-	Main main;
-	OrderDeliveryRemindersSteps(Main main ){	
-		this.main = main;	
-	}
+	/*
+	 * Main main; OrderDeliveryRemindersSteps(Main main ){ this.main = main; }
+	 */
 	
 	@Given("a customer has an upcoming meal delivery scheduled")
 	public void aCustomerHasAnUpcomingMealDeliveryScheduled() {

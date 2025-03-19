@@ -7,12 +7,13 @@ import mainpackage.Main;
 
 public class NotifyUsersAboutInventory_Steps {
 	
-	Main main ;
-	NotifyUsersAboutInventory_Steps(Main main){
-		
-		this.main=main;
-			
-	}
+	/*
+	 * Main main ; NotifyUsersAboutInventory_Steps(Main main){
+	 * 
+	 * this.main=main;
+	 * 
+	 * }
+	 */
 
     @Given("the current stock levels are being monitored")
     public void theCurrentStockLevelsAreBeingMonitored() {
