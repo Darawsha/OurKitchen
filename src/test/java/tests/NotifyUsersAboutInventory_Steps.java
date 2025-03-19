@@ -3,8 +3,16 @@ package tests;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import mainpackage.Main;
 
 public class NotifyUsersAboutInventory_Steps {
+	
+	Main main ;
+	NotifyUsersAboutInventory_Steps(Main main){
+		
+		this.main=main;
+			
+	}
 
     @Given("the current stock levels are being monitored")
     public void theCurrentStockLevelsAreBeingMonitored() {
