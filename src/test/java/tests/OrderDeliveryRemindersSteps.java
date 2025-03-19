@@ -6,11 +6,12 @@ import io.cucumber.java.en.When;
 import mainpackage.Main;
 
 public class OrderDeliveryRemindersSteps {
-	
-	/*
-	 * Main main; OrderDeliveryRemindersSteps(Main main ){ this.main = main; }
-	 */
-	
+		
+	 Main main; 
+	 public OrderDeliveryRemindersSteps(Main main ){ 
+		 this.main = main;
+	 }
+	 
 	@Given("a customer has an upcoming meal delivery scheduled")
 	public void aCustomerHasAnUpcomingMealDeliveryScheduled() {
 	    // Write code here that turns the phrase above into concrete actions

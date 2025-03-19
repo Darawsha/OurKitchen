@@ -12,7 +12,6 @@ import org.junit.runner.RunWith;
     glue = { "tests" }
 )
 public class AcceptanceTest {
-	
-	
+
 	
 }
