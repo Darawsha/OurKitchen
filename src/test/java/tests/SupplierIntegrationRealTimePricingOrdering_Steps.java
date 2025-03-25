@@ -3,11 +3,11 @@ package tests;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import mainpackage.Main;
+import mainpackage.*;
 
 public class SupplierIntegrationRealTimePricingOrdering_Steps {
-
-	Main main;
+		manager manager = new manager();
+		Main main;
 	public SupplierIntegrationRealTimePricingOrdering_Steps(Main main){
 		this.main=main;
 	}

@@ -1,11 +1,14 @@
 package tests;
-
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import mainpackage.Main;
+import mainpackage.*;
 
 public class BillingSystem_Steps {
+	
+		customer customer = new customer();
+		Order order = new Order();
+		admin admin = new admin();
 		
 	  Main main ; 
 	  public BillingSystem_Steps(Main main){

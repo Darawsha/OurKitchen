@@ -3,11 +3,13 @@ package tests;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import mainpackage.Main;
+import mainpackage.*;
 
 public class OrderDeliveryRemindersSteps {
-		
-	 Main main; 
+		customer customer = new customer();
+		reminder reminder = new reminder();
+		chef chef = new chef();
+		Main main; 
 	 public OrderDeliveryRemindersSteps(Main main ){ 
 		 this.main = main;
 	 }

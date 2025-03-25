@@ -3,9 +3,11 @@ package tests;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import mainpackage.Main;
 
+import mainpackage.*;
 public class IngredientTrackingAndRestockingSuggestions_Steps {
+	
+		manager manager = new manager ();
 	
 	Main main; 
 	public IngredientTrackingAndRestockingSuggestions_Steps(Main main){

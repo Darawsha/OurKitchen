@@ -3,11 +3,11 @@ package tests;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import mainpackage.Main;
-
+import mainpackage.*;
 public class NotifyUsersAboutInventory_Steps {
 		
-	  Main main ; 
+		Stock Stock = new Stock();
+		Main main ; 
 	  public NotifyUsersAboutInventory_Steps(Main main){
 	  
 	  this.main=main;
