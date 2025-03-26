@@ -7,7 +7,7 @@ import io.cucumber.java.en.When;
 import mainpackage.*;
 public class IngredientTrackingAndRestockingSuggestions_Steps {
 	
-		manager manager = new manager ();
+		Manager manager = new Manager ();
 	
 	Main main; 
 	public IngredientTrackingAndRestockingSuggestions_Steps(Main main){

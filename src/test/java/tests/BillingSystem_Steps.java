@@ -6,9 +6,9 @@ import mainpackage.*;
 
 public class BillingSystem_Steps {
 	
-		customer customer = new customer();
+		Customer customer = new Customer();
 		Order order = new Order();
-		admin admin = new admin();
+		Admin admin = new Admin();
 		
 	  Main main ; 
 	  public BillingSystem_Steps(Main main){

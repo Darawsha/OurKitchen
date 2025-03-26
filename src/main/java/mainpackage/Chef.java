@@ -1,5 +1,5 @@
 package mainpackage;
 
-public class admin {
+public class Chef {
 	Person Person = new Person();
 }

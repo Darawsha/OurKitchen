@@ -1,6 +1,6 @@
 package mainpackage;
 
-public class customer {
+public class Customer {
 	
 	//customer(){}
 	

@@ -1,5 +1,5 @@
 package mainpackage;
 
-public class reminder {
+public class Reminder {
 
 }

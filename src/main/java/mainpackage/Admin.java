@@ -1,6 +1,5 @@
 package mainpackage;
 
-public class manager {
+public class Admin {
 	Person Person = new Person();
-	
 }

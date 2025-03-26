@@ -6,9 +6,12 @@ import io.cucumber.java.en.When;
 import mainpackage.*;
 
 public class OrderDeliveryRemindersSteps {
-		customer customer = new customer();
-		reminder reminder = new reminder();
-		chef chef = new chef();
+	
+		Customer customer = new Customer();
+		Reminder reminder = new Reminder();
+		Chef chef = new Chef();
+		
+		
 		Main main; 
 	 public OrderDeliveryRemindersSteps(Main main ){ 
 		 this.main = main;

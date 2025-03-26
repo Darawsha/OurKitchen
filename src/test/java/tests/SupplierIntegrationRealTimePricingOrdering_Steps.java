@@ -6,7 +6,7 @@ import io.cucumber.java.en.When;
 import mainpackage.*;
 
 public class SupplierIntegrationRealTimePricingOrdering_Steps {
-		manager manager = new manager();
+		Manager manager = new Manager();
 		Main main;
 	public SupplierIntegrationRealTimePricingOrdering_Steps(Main main){
 		this.main=main;
