@@ -7,14 +7,11 @@ import mainpackage.*;
 
 public class OrderDeliveryRemindersSteps {
 	
-		Customer customer = new Customer();
-		Reminder reminder = new Reminder();
-		Chef chef = new Chef();
+
 		
-		
-		Main main; 
-	 public OrderDeliveryRemindersSteps(Main main ){ 
-		 this.main = main;
+	MySystem MySystem; 
+	 public OrderDeliveryRemindersSteps(MySystem MySystem ){ 
+		 this.MySystem = MySystem;
 	 }
 	 
 	@Given("a customer has an upcoming meal delivery scheduled")
