@@ -3,13 +3,15 @@ package tests;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import mainpackage.Main;
+import mainpackage.*;
 
 public class OrderDeliveryRemindersSteps {
+	
+
 		
-	 Main main; 
-	 public OrderDeliveryRemindersSteps(Main main ){ 
-		 this.main = main;
+	MySystem MySystem; 
+	 public OrderDeliveryRemindersSteps(MySystem MySystem ){ 
+		 this.MySystem = MySystem;
 	 }
 	 
 	@Given("a customer has an upcoming meal delivery scheduled")
