@@ -1,4 +1,5 @@
 package mainpackage;
-public class Order {
+
+public class Customer {
 	
 }

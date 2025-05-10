@@ -9,44 +9,41 @@ import mainpackage.*;
 
 public class NotifyUsersAboutInventory_Steps {
 
-	MySystem MySystem;
+    private MySystem mySystem;
 
-	public NotifyUsersAboutInventory_Steps(MySystem MySystem) {
+    public NotifyUsersAboutInventory_Steps(MySystem mySystem) {
+        this.mySystem = mySystem;
+    }
 
-		this.MySystem = MySystem;
+    @Given("the current stock levels are being monitored")
+    public void theCurrentStockLevelsAreBeingMonitored() {
+        mySystem.startMonitoringStockLevels();
+        assertTrue("System should be monitoring stock levels", mySystem.isMonitoringStockLevels());
+    }
 
-	}
+    @Given("Stock levels are lower than required")
+    public void stockLevelsAreLowerThanRequired() {
+        mySystem.addIngredient("Tomato", 50, 30);
+        mySystem.useIngredient("Tomato", 25);
+        int currentStock = mySystem.getStockLevel("Tomato");
+        assertTrue("Stock level should be below the threshold", currentStock < 30);
+    }
 
-	@Given("the current stock levels are being monitored")
-	public void theCurrentStockLevelsAreBeingMonitored() {
+    @When("the system detects the low-stock level")
+    public void theSystemDetectsTheLowStockLevel() {
+        mySystem.checkStockLevels();
+        assertTrue("System should detect low stock levels", mySystem.isLowStockDetected("Tomato"));
+    }
 
-		MySystem.startMonitoringStockLevels();
-		assertTrue("System should be monitoring stock levels", MySystem.isMonitoringStockLevels());
+    @Then("an alert is sent to the kitchen manager")
+    public void anAlertIsSentToTheKitchenManager() {
+        mySystem.sendLowStockAlert("Tomato");
+        assertTrue("Alert should be sent to the kitchen manager", mySystem.isAlertSent("Tomato"));
+    }
 
-	}
-
-	@Given("Stock levels are lower than required")
-	public void stockLevelsAreLowerThanRequired() {
-		Ingredient ingredient = new Ingredient("Tomato", 50, 30);
-		MySystem.addIngredient(ingredient);
-		MySystem.useIngredient("Tomato", 25);
-
-		int currentStock = MySystem.getStockLevel("Tomato");
-		assertTrue("Stock level should be below the threshold", currentStock < ingredient.getThreshold());
-	}
-
-	@When("the system detects the low-stock level")
-	public void theSystemDetectsTheLowStockLevel() {
-
-	}
-
-	@Then("an alert is sent to the kitchen manager")
-	public void anAlertIsSentToTheKitchenManager() {
-
-	}
-
-	@Then("I will adjust and fill the inventory again")
-	public void iWillAdjustAndFillTheInventoryAgain() {
-
-	}
+    @Then("I will adjust and fill the inventory again")
+    public void iWillAdjustAndFillTheInventoryAgain() {
+        boolean stockUpdated = mySystem.restockIngredient("Tomato", 100);
+        assertTrue("The inventory for Tomato should be refilled", stockUpdated);
+    }
 }
