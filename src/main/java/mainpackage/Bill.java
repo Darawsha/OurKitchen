@@ -1,5 +1,5 @@
 package mainpackage;
 
-public class Stock {
-
+public class Bill {
+	
 }

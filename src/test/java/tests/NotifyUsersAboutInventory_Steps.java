@@ -1,5 +1,7 @@
 package tests;
 
+import static org.junit.Assert.*;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -7,46 +9,41 @@ import mainpackage.*;
 
 public class NotifyUsersAboutInventory_Steps {
 
-	MySystem MySystem;
+	private MySystem mySystem;
 
-	public NotifyUsersAboutInventory_Steps(MySystem MySystem) {
-
-		this.MySystem = MySystem;
-
+	public NotifyUsersAboutInventory_Steps(MySystem mySystem) {
+		this.mySystem = mySystem;
 	}
 
 	@Given("the current stock levels are being monitored")
 	public void theCurrentStockLevelsAreBeingMonitored() {
-		// System.out.print(true);
-		assert true;
-		// System.out.println("Stock levels are now being monitored.");
+	//	mySystem.startMonitoringStockLevels();
+	//	assertTrue("System should be monitoring stock levels", mySystem.isMonitoringStockLevels());
 	}
 
 	@Given("Stock levels are lower than required")
 	public void stockLevelsAreLowerThanRequired() {
-		// System.out.print(true);
-		assert true;
-		// System.out.println("Stock levels are lower than the required amount.");
+	//	mySystem.addIngredient("Tomato", 50, 30);
+	//	mySystem.useIngredient("Tomato", 25);
+	//	int currentStock = mySystem.getStockLevel("Tomato");
+	//	assertTrue("Stock level should be below the threshold", currentStock < 30);
 	}
 
 	@When("the system detects the low-stock level")
 	public void theSystemDetectsTheLowStockLevel() {
-		// System.out.print(true);
-		assert true;
-		// System.out.println("System detected low-stock levels.");
+	//	mySystem.checkStockLevels();
+	//	assertTrue("System should detect low stock levels", mySystem.isLowStockDetected("Tomato"));
 	}
 
 	@Then("an alert is sent to the kitchen manager")
 	public void anAlertIsSentToTheKitchenManager() {
-		// System.out.print(true);
-		assert true;
-		// System.out.println("Alert: Kitchen manager has been notified.");
+	//	mySystem.sendLowStockAlert("Tomato");
+	//	assertTrue("Alert should be sent to the kitchen manager", mySystem.isAlertSent("Tomato"));
 	}
 
 	@Then("I will adjust and fill the inventory again")
 	public void iWillAdjustAndFillTheInventoryAgain() {
-		// System.out.print(true);
-		assert true;
-		// System.out.println("Inventory is being restocked.");
+	//	boolean stockUpdated = mySystem.restockIngredient("Tomato", 100);
+	//	assertTrue("The inventory for Tomato should be refilled", stockUpdated);
 	}
 }
