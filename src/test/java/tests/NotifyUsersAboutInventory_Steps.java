@@ -1,5 +1,7 @@
 package tests;
 
+import static org.junit.Assert.*;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -17,36 +19,34 @@ public class NotifyUsersAboutInventory_Steps {
 
 	@Given("the current stock levels are being monitored")
 	public void theCurrentStockLevelsAreBeingMonitored() {
-		// System.out.print(true);
-		assert true;
-		// System.out.println("Stock levels are now being monitored.");
+
+		MySystem.startMonitoringStockLevels();
+		assertTrue("System should be monitoring stock levels", MySystem.isMonitoringStockLevels());
+
 	}
 
 	@Given("Stock levels are lower than required")
 	public void stockLevelsAreLowerThanRequired() {
-		// System.out.print(true);
-		assert true;
-		// System.out.println("Stock levels are lower than the required amount.");
+		Ingredient ingredient = new Ingredient("Tomato", 50, 30);
+		MySystem.addIngredient(ingredient);
+		MySystem.useIngredient("Tomato", 25);
+
+		int currentStock = MySystem.getStockLevel("Tomato");
+		assertTrue("Stock level should be below the threshold", currentStock < ingredient.getThreshold());
 	}
 
 	@When("the system detects the low-stock level")
 	public void theSystemDetectsTheLowStockLevel() {
-		// System.out.print(true);
-		assert true;
-		// System.out.println("System detected low-stock levels.");
+
 	}
 
 	@Then("an alert is sent to the kitchen manager")
 	public void anAlertIsSentToTheKitchenManager() {
-		// System.out.print(true);
-		assert true;
-		// System.out.println("Alert: Kitchen manager has been notified.");
+
 	}
 
 	@Then("I will adjust and fill the inventory again")
 	public void iWillAdjustAndFillTheInventoryAgain() {
-		// System.out.print(true);
-		assert true;
-		// System.out.println("Inventory is being restocked.");
+
 	}
 }
