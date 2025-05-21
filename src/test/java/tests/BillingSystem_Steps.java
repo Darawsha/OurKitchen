@@ -16,18 +16,20 @@ public class BillingSystem_Steps {
 
 	@Given("the customer has logged in successfully")
 	public void theCustomerHasLoggedInSuccessfully() {
-//		mySystem.loginCustomer("customer1", "password123");
-//		assertTrue("Customer should be logged in the system", mySystem.customerIsLoggedIn());
+
+		mySystem.registerCustomer("customer1", "password123");
+		mySystem.loginCustomer("customer1", "password123");
+		assertTrue("Customer should be logged in the system", mySystem.customerIsLoggedIn("customer1"));
 	}
 
 	@Given("the customer has successfully completed their order")
 	public void theCustomerHasSuccessfullyCompletedTheirOrder() {
-//		mySystem.loginCustomer("customer1", "password123");
-//		mySystem.createOrder("Pizza Order", "2025-05-11T12:00:00");
-//		mySystem.addOrderItem("Pizza", 2);
-//		mySystem.addOrderItem("Salad", 1);
-//		mySystem.completeOrder();
-//		assertTrue("Customer's order should be marked as completed", mySystem.isOrderCompleted());
+		mySystem.loginCustomer("customer1", "password123");
+		mySystem.createOrder("Pizza Order", "2025-05-11T12:00:00");
+		mySystem.addOrderItem("Pizza", 2);
+		mySystem.addOrderItem("Salad", 1);
+		mySystem.completeOrder();
+		assertTrue("Customer's order should be marked as completed", mySystem.isOrderCompleted());
 	}
 
 	@Given("the order has been successfully processed")
