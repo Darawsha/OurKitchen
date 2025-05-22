@@ -9,11 +9,5 @@ public class OrderItem {
 		this.quantity = quantity;
 	}
 
-	public String getItemName() {
-		return itemName;
-	}
 
-	public int getQuantity() {
-		return quantity;
-	}
 }
