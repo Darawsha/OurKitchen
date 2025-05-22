@@ -26,11 +26,5 @@ public class Order {
 		return completed;
 	}
 
-	public String getOrderName() {
-		return orderName;
-	}
 
-	public List<OrderItem> getItems() {
-		return items;
-	}
 }

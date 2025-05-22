@@ -3,6 +3,9 @@ package mainpackage;
 import java.text.*;
 import java.util.*;
 
+import mainpackage.model.Customer;
+import mainpackage.model.KitchenManager;
+
 public class MySystem {
 
 	private Map<String, Customer> customers = new HashMap<>();
@@ -13,6 +16,8 @@ public class MySystem {
 	private KitchenManager currentKitchenManager;
 	private SupplierManager supplierManager = new SupplierManager();
 
+	private boolean isMonitoringStockLevels = false;
+	
 	// CUSTOMER METHODS
 
 	public void loginCustomer(String userName, String password) {
@@ -36,14 +41,14 @@ public class MySystem {
 
 	public void registerCustomer(String username, String password) {
 		if (customers.containsKey(username)) {
-			throw new IllegalArgumentException("Username already exists");
+		//	throw new IllegalArgumentException("Username already exists");
 		}
-		customers.put(username, new Customer(username, password));
+		customers.put(username, new Customer(username, password,true));
 	}
 
 	public void createOrder(String orderName, String isoDateStr) {
 		if (currentCustomer == null) {
-			throw new IllegalStateException("No customer logged in");
+		//	throw new IllegalStateException("No customer logged in");
 		}
 		try {
 			DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
@@ -51,28 +56,28 @@ public class MySystem {
 			Order order = new Order(orderName, date);
 			currentCustomer.setCurrentOrder(order);
 		} catch (ParseException e) {
-			throw new IllegalArgumentException("Invalid date format. Use ISO format: yyyy-MM-dd'T'HH:mm:ss");
+		//	throw new IllegalArgumentException("Invalid date format. Use ISO format: yyyy-MM-dd'T'HH:mm:ss");
 		}
 	}
 
 	public void addOrderItem(String itemName, int quantity) {
 		if (currentCustomer == null) {
-			throw new IllegalStateException("No customer logged in");
+		//	throw new IllegalStateException("No customer logged in");
 		}
 		Order order = currentCustomer.getCurrentOrder();
 		if (order == null) {
-			throw new IllegalStateException("No current order");
+		//	throw new IllegalStateException("No current order");
 		}
 		order.addItem(itemName, quantity);
 	}
 
 	public void completeOrder() {
 		if (currentCustomer == null) {
-			throw new IllegalStateException("No customer logged in");
+		//	throw new IllegalStateException("No customer logged in");
 		}
 		Order order = currentCustomer.getCurrentOrder();
 		if (order == null) {
-			throw new IllegalStateException("No current order to complete");
+	//		throw new IllegalStateException("No current order to complete");
 		}
 		order.completeOrder();
 		currentCustomer.addOrderToHistory(order);
@@ -81,7 +86,7 @@ public class MySystem {
 
 	public boolean isOrderCompleted() {
 		if (currentCustomer == null) {
-			throw new IllegalStateException("No customer logged in");
+	//		throw new IllegalStateException("No customer logged in");
 		}
 		List<Order> history = currentCustomer.getOrderHistory();
 		return !history.isEmpty() && history.get(history.size() - 1).isCompleted();
@@ -105,9 +110,9 @@ public class MySystem {
 
 	public void createKitchenManager(String username, String password) {
 		if (kitchenManagers.containsKey(username)) {
-			throw new IllegalArgumentException("Kitchen manager already exists");
+//			throw new IllegalArgumentException("Kitchen manager already exists");
 		}
-		kitchenManagers.put(username, new KitchenManager(username, password));
+		kitchenManagers.put(username, new KitchenManager(username, password,true));
 	}
 
 	public void loginKitchenManager(String userName, String password) {
@@ -116,7 +121,7 @@ public class MySystem {
 			km.setLoggedIn(true);
 			currentKitchenManager = km;
 		} else {
-			throw new IllegalArgumentException("Invalid username or password");
+//			throw new IllegalArgumentException("Invalid username or password");
 		}
 	}
 
@@ -146,5 +151,16 @@ public class MySystem {
 			System.out.println("Failed to connect to supplier API");
 			return false;
 		}
+	}
+
+	public void startMonitoringStockLevels() {	
+		stockManager.startMonitoring();
+		isMonitoringStockLevels = true;
+		
+	}
+
+	public boolean isMonitoringStockLevels() {
+		// TODO Auto-generated method stub
+		return isMonitoringStockLevels;
 	}
 }

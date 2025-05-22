@@ -31,4 +31,8 @@ public class StockManager {
 	public int getStockLevel(String itemName) {
 		return stock.getOrDefault(itemName, 0);
 	}
+
+	public void startMonitoring() {
+		checkStockLevels();
+	}
 }

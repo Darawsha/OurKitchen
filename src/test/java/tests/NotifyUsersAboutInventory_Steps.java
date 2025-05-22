@@ -17,8 +17,8 @@ public class NotifyUsersAboutInventory_Steps {
 
 	@Given("the current stock levels are being monitored")
 	public void theCurrentStockLevelsAreBeingMonitored() {
-	//	mySystem.startMonitoringStockLevels();
-	//	assertTrue("System should be monitoring stock levels", mySystem.isMonitoringStockLevels());
+		mySystem.startMonitoringStockLevels();
+		assertTrue("System should be monitoring stock levels", mySystem.isMonitoringStockLevels());
 	}
 
 	@Given("Stock levels are lower than required")

@@ -1,16 +1,21 @@
-package mainpackage;
+package mainpackage.model;
 
-public class KitchenManager {
+public class Person {
+
+	
 	private String username;
 	private String password;
-	private boolean isLoggedIn;
-
-	public KitchenManager(String username, String password) {
+	private boolean loggedIn = false;
+	
+	public Person(String username, String password, boolean loggedIn) {
+		super();
 		this.username = username;
 		this.password = password;
-		this.isLoggedIn = false;
+		this.loggedIn = loggedIn;
 	}
-
+	
+	
+	
 	public String getUsername() {
 		return username;
 	}
@@ -28,11 +33,13 @@ public class KitchenManager {
 	}
 
 	public boolean isLoggedIn() {
-		return isLoggedIn;
+		return loggedIn;
 	}
 
-	public void setLoggedIn(boolean isLoggedIn) {
-		this.isLoggedIn = isLoggedIn;
+	public void setLoggedIn(boolean loggedIn) {
+		this.loggedIn = loggedIn;
 	}
 
+	
+	
 }
