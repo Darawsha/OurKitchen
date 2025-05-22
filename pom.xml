@@ -38,4 +38,8 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    <properties>
+  <sonar.organization>ameeddarawsheh</sonar.organization>
+  <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+</properties>
 </project>
