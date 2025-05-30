@@ -1,16 +1,17 @@
 package mainpackage;
 
+import java.time.LocalDateTime;
 import java.util.*;
 
 public class Order {
 	private String orderName;
-	private Date orderDate;
+	private LocalDateTime orderDate;
 	private List<OrderItem> items = new ArrayList<>();
 	private boolean completed;
 
-	public Order(String orderName, Date orderDate) {
+	public Order(String orderName, LocalDateTime date) {
 		this.orderName = orderName;
-		this.orderDate = orderDate;
+		this.orderDate = date;
 		this.completed = false;
 	}
 
