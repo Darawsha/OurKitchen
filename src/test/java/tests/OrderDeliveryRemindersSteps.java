@@ -19,15 +19,15 @@ public class OrderDeliveryRemindersSteps {
 
 	@Given("a customer has an upcoming meal delivery scheduled")
 	public void aCustomerHasAnUpcomingMealDeliveryScheduled() {
-	//	mySystem.createOrder("Grilled Chicken", "2025-05-11T12:00:00");
-	//	boolean scheduled = mySystem.scheduleOrder();
+		//mySystem.getCustomerService().createOrder("Grilled Chicken", "2025-05-11T12:00:00");
+		//boolean scheduled = mySystem.getCustomerService().scheduleOrder();
 	//	assertTrue("Meal delivery should be scheduled", scheduled);
 	}
 
 	@Given("the delivery time is approaching")
 	public void theDeliveryTimeIsApproaching() {
 	//	String upcomingTime = LocalDateTime.now().plusMinutes(15).toString();
-	//	mySystem.createOrder("Grilled Chicken", upcomingTime);
+	//	mySystem.getCustomerService().createOrder("Grilled Chicken", upcomingTime);
 	//	mySystem.scheduleOrder();
 	//	boolean isApproaching = mySystem.isDeliveryTimeApproaching();
 	//	assertTrue("Delivery time should be considered approaching", isApproaching);

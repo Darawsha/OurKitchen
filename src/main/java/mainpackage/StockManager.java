@@ -6,6 +6,8 @@ public class StockManager {
 
 	private Map<String, Integer> stock = new HashMap<>();
 
+	private final Map<String, Integer> thresholds = new HashMap<>();
+
 	public void addItem(String itemName, int quantity) {
 		stock.put(itemName, stock.getOrDefault(itemName, 0) + quantity);
 	}
@@ -35,4 +37,13 @@ public class StockManager {
 	public void startMonitoring() {
 		checkStockLevels();
 	}
+
+	public void setThreshold(String itemName, int threshold) {
+		thresholds.put(itemName, threshold);
+	}
+
+	public int getThreshold(String itemName) {
+		return thresholds.getOrDefault(itemName, 0);
+	}
+
 }
