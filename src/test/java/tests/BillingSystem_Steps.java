@@ -1,6 +1,9 @@
 package tests;
 
 import static org.junit.Assert.*;
+
+import org.junit.jupiter.api.Test;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -19,7 +22,37 @@ public class BillingSystem_Steps {
 
 		mySystem.getCustomerService().registerCustomer("customer1", "password123");
 		mySystem.getCustomerService().loginCustomer("customer1", "password123");
-		assertTrue("Customer should be logged in the system", mySystem.getCustomerService().customerIsLoggedIn("customer1"));
+		assertTrue("Customer should be logged in the system",
+				mySystem.getCustomerService().customerIsLoggedIn("customer1"));
+
+		try {
+			mySystem.getCustomerService().registerCustomer("customer1", "password123");
+			fail("Customer username is already registered");
+		} catch (Exception e) {
+
+		}
+
+		try {
+			mySystem.getCustomerService().registerCustomer(null, null);
+			fail("Customer username and password must not be null");
+		} catch (Exception e) {
+
+		}
+
+		try {
+			mySystem.getCustomerService().loginCustomer(null, null);
+			fail("Customer username and password must not be null");
+		} catch (Exception e) {
+
+		}
+
+		try {
+			mySystem.getCustomerService().loginCustomer("Ameed", "password123");
+			fail("Customer username is not registered");
+		} catch (Exception e) {
+
+		}
+
 	}
 
 	@Given("the customer has successfully completed their order")
@@ -34,26 +67,27 @@ public class BillingSystem_Steps {
 
 	@Given("the order has been successfully processed")
 	public void theOrderHasBeenSuccessfullyProcessed() {
-//		mySystem.loginCustomer("customer1", "password123");
-//		mySystem.createOrder("Pizza Order", "2025-05-11T12:00:00");
-//		mySystem.addOrderItem("Pizza", 2);
-//		mySystem.addOrderItem("Salad", 1);
-//		mySystem.completeOrder();
-//		assertTrue("Order should be processed", mySystem.isOrderCompleted());
+		mySystem.getCustomerService().loginCustomer("customer1", "password123");
+		mySystem.getCustomerService().createOrder("Pizza Order", "2025-05-11T12:00:00");
+		mySystem.getCustomerService().addOrderItem("Pizza", 2);
+		mySystem.getCustomerService().addOrderItem("Salad", 1);
+		mySystem.getCustomerService().completeOrder();
+		assertTrue("Order should be processed", mySystem.getCustomerService().isOrderCompleted());
 	}
 
 	@When("the system creates the bill")
 	public void theSystemCreatesTheBill() {
-//		mySystem.createBill("Credit Card");
-//		mySystem.generateBill();
-//		assertNotNull("Bill should be created", mySystem.getBillDetails());
+//	    mySystem.getBillService().createBill("Credit Card");
+//	    mySystem.getBillService().generateBill();
+//	    assertNotNull("Bill should be created", mySystem.getBillService().getBillDetails());
 	}
+
 
 	@Then("the bill should contain the customer's name {string}, order number {string}, date of order {string}, cost {string}, order details {string}, and payment method {string}")
 	public void theBillShouldContainTheCustomerSNameOrderNumberDateOfOrderCostOrderDetailsAndPaymentMethod(
 			String customerName, String orderNumber, String orderDate, String cost, String orderDetails,
 			String paymentMethod) {
-//		String billDetails = mySystem.getBillDetails();
+//		String billDetails = mySystem.getBillService().getBillDetails();
 //		assertTrue("Bill should contain customer name", billDetails.contains(customerName));
 //		assertTrue("Bill should contain order number", billDetails.contains(orderNumber));
 //		assertTrue("Bill should contain order date", billDetails.contains(orderDate));
@@ -64,8 +98,8 @@ public class BillingSystem_Steps {
 
 	@Then("the bill should be sent to the customer's email {string}")
 	public void theBillShouldBeSentToTheCustomerSEmail(String email) {
-//		boolean sent = mySystem.sendBillToEmail(email);
-//		assertTrue("Bill should be sent to customer's email", sent);
+	//	boolean sent = mySystem.getBillService().sendBillToEmail(email);
+		//assertTrue("Bill should be sent to customer's email", sent);
 	}
 
 	@Then("the bill should be added to the customer's account order history")

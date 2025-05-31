@@ -19,16 +19,26 @@ public class SupplierIntegrationRealTimePricingOrdering_Steps {
 	public void theKitchenManagerWantsToCheckIngredientPrices() {
 		mySystem.getKitchenService().createKitchenManager("KitchenManager", "password");
 		mySystem.getKitchenService().loginKitchenManager("KitchenManager", "password");
-		// mySystem.loginKitchenManager("KitchenManager2", "wrongpassword");
-		assertTrue("Kitchen manager should be logged in", mySystem.getKitchenService().kitchenManagerIsLoggedIn("KitchenManager"));
-		// assertFalse("Kitchen manager should have a account",
-		// mySystem.kitchenManagerIsLoggedIn("KitchenManager2"));
+		assertTrue("Kitchen manager should be logged in",
+				mySystem.getKitchenService().kitchenManagerIsLoggedIn("KitchenManager"));
+		try {
+			mySystem.getKitchenService().createKitchenManager("KitchenManager", "password");
+			fail("Expected exception for already existing kitchen manager");
+		} catch (Exception e) {
+		}
+
+		try {
+			mySystem.getKitchenService().loginKitchenManager("WrongUser", "wrongpassword");
+			fail("Expected exception for invalid login");
+		} catch (IllegalArgumentException e) {
+		}
+		assertFalse(mySystem.getKitchenService().kitchenManagerIsLoggedIn("KitchenManager245"));
 	}
 
 	@When("the system connects to supplier APIs")
 	public void theSystemConnectsToSupplierAPIs() {
-		 boolean connected = mySystem.getKitchenService().connectToSupplierAPI();
-		 assertTrue("System should connect to supplier APIs", connected);
+		boolean connected = mySystem.getKitchenService().connectToSupplierAPI();
+		assertTrue("System should connect to supplier APIs", connected);
 	}
 
 	@Then("the system displays real-time prices for the ingredients")

@@ -7,14 +7,16 @@ public class MySystem {
     private final CustomerService customerService;
     private final StockService stockService;
     private final KitchenService kitchenService;
+    private final BillService billService;
+    private final StorehouseService storehouseService;
 
-    public MySystem(StockService stockService, KitchenService kitchenService) {
-        if (stockService == null || kitchenService == null) {
-            throw new IllegalArgumentException("StockService and KitchenService cannot be null.");
-        }
+    public MySystem() {
+   
         this.customerService = new CustomerService();
-        this.stockService = stockService;
-        this.kitchenService = kitchenService;
+		this.stockService = new StockService(new StockManager());
+		this.kitchenService = new KitchenService(new SupplierManager(), new StockManager()); 
+		this.billService = new BillService();
+		this.storehouseService = new StorehouseService();
     }
 
     public CustomerService getCustomerService() {
@@ -28,4 +30,15 @@ public class MySystem {
     public KitchenService getKitchenService() {
         return kitchenService;
     }
+
+	public BillService getBillService() {
+		return billService;
+	}
+
+	/**
+	 * @return the storehouse
+	 */
+	public StorehouseService getStorehouseService() {
+		return storehouseService;
+	}
 }
