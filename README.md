@@ -13,7 +13,6 @@ OurKitchen is an application for managing customer profiles in restaurants, wher
     git clone https://github.com/AmeedDarawsheh/OurKitchen.git
     ```
 
-
 ## Contribution Guidelines
 We welcome contributions! To get started, please follow these steps:
 1. Fork the repository.
